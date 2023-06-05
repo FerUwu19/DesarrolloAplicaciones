@@ -35,6 +35,27 @@ a:hover{
 
 }
 
+.imageHome{
+    padding: 40px;
+    opacity:0.7; 
+}
+
+.textHome1{
+    padding-top: 140px;
+    padding-left: 35px;;
+    font-size: 90px;
+    font-weight: 700;
+    color:  #FF69A4;
+}
+
+.textHome2{
+    margin-top: -60px;
+    padding-left: 40px;;
+    font-size: 22px;
+    font-weight: 450;
+    color: #FAC9DC;
+}
+
 h1{
     font-size: 24px;
     color: black;
