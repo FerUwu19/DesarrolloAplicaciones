@@ -1,0 +1,97 @@
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    height:50px;
+    width: 100%;
+    background-color: #FAC9DC;
+    color:#FF69A4;
+}
+
+.menuList{
+    display: flex;
+    margin-top:  12px;
+    list-style: none;
+}
+
+.menuItemList{
+    margin: 0 30px;
+}
+
+.menuItemImage{
+    margin-top: 3px;
+}
+.menuItemLink{
+    font-size: 18px;
+    font-weight: 700;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: #FF69A4;
+    font-weight: bold;
+
+}
+
+h1{
+    font-size: 24px;
+    color: black;
+    margin: 0 25px;
+    padding-top: 15px;
+}
+
+.articleList{
+    margin-left: 26px;
+    display: inline-block;
+    ;
+    margin-top:  20px;
+    list-style: none;
+    background-color: #F4E7EF;
+    padding-top: 20px;
+    padding-right: 40px;
+}
+
+.articleListR{
+    margin-left: 26px;
+    display: inline-block;
+    ;
+    margin-top:  12px;
+    list-style: none;
+    background-color: #F4E7EF;
+    padding-top: 34px;
+    padding-right: 40px;
+}
+
+.articleListR2{
+    margin-left: 26px;
+    display: inline-block;
+    ;
+    margin-top:  12px;
+    list-style: none;
+    background-color: #F4E7EF;
+    padding-top: 42px;
+    padding-right: 40px;
+}
+
+.imageCommerceR{
+    padding: 15px;
+}
+
+.textCommerce{
+    margin: 0 16px;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    padding: 3px;
+    text-align: center;
+    background-color: #FAC9DC;
+    color: black;
+    margin-right: -10px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+}
