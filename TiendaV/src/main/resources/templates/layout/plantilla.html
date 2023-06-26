@@ -8,6 +8,7 @@
         <meta name="Keywords" content="sanrio, hello kitty, my melody, cinnamoroll, kuromi, keroppi"/> 
         <link href="style/estilosTienda.css" rel="stylesheet" type="text/css"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/js/rutinas.js}" />
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
@@ -20,10 +21,10 @@
                     <ul class="navMenuGeneral">
                         <li /> 
                         <ul class="navMenuList">
-                            <li class="navItemList" /><a th:href="@{/}" class="navbar-brand"><img src="imagenes/Sanrio.png" width="75"/></a>
-                            <li class="navItemList" /><a class="navMenuLink"  href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a>
-                            <li class="navItemList" /><a class="navMenuLink"  href="@{/producto/listado}">[[#{plantilla.productos}]]</a> 
-                            <li class="navItemList" /><a class="navMenuLink"  href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a>      
+                            <li class="navItemList" ><a th:href="@{/}" class="navbar-brand"><img src="imagenes/Sanrio.png" width="75"/></a> </li>
+                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
+                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a> </li>
                         </ul>
                         <li /> 
                         <div>
