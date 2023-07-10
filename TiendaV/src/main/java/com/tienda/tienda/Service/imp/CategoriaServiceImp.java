@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CategoriaServiceImp implements CategoriaService {
-
-    
     @Autowired
     private CategoriaDao categoriaDao;
 

@@ -18,27 +18,28 @@
         <header th:fragment="header" class="header">
             <nav >
                 <div class="collapse navbar-collapse " id="navbarCollapse">
-                    <ul class="navMenuGeneral">
-                        <li /> 
-                        <ul class="navMenuList">
-                            <li class="navItemList" ><a th:href="@{/}" class="navbar-brand"><img src="imagenes/Sanrio.png" width="75"/></a> </li>
-                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
-                            <li class="navItemList" ><a class="navMenuLink"  th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a> </li>
-                        </ul>
-                        <li /> 
+                    <ul class="MenuGeneral">
+                        <li > 
+                            <ul class="MenuList">
+                                <li class="ItemList" ><a th:href="@{/}" class="navbar-brand"><img src="imagenes/Sanrio.png" width="75"/></a> </li>
+                                <li class="ItemList" ><a class="MenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                                <li class="ItemList" ><a class="MenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
+                                    <a class="ItemList MenuLink droptown"
+                                        data-bs-toggle="dropdown"
+                                        href="#"
+                                        role="button"
+                                        aria-expanded="false">[[#{plantilla.asociaciones}]]</a>
+                            </ul>
+                        </li> 
                         <div>
-                            <ul class="navMenuList">
-                                <li class="navItemList"  /><a class="navMenuLink"  th:href="@{/(lang=es)}">ES</a></li>
-                                <li class="navItemList" /><a class="navMenuLink" th:href="@{/(lang=en)}">EN</a></li>
+                            <ul class="MenuList">
+                                <li class="ItemList"  /><a class="MenuLink"  th:href="@{/(lang=es)}">ES</a></li>
+                                <li class="ItemList" /><a class="MenuLink" th:href="@{/(lang=en)}">EN</a></li>
                             </ul>
                         </div>
                     </ul>
-
                 </div> 
-
             </nav>
-
         </header>
 
         <footer th:fragment="footer" class="footer">
