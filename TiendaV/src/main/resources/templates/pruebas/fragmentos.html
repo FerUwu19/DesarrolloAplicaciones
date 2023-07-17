@@ -4,23 +4,24 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Sanrio</title>
-        
     </head>
     <body>
-        <!-- 1 Sección principal para mostrar la informaccion de las categorias -->
-        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
-           <div class="container">
-                <div class="row">
-                    <div class="col-md-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block" 
-                            data-bs-toggle="modal" 
-                            data-bs-target="#agregarCategoria">
-                            <i class="fas fa-plus"></i> [[#{categoria.agregar}]]
-                        </button>
-                    </div>
-                </div>
+         <!-- 1 Sección principal para mostrar la informaccion de las categorias -->
+        <section th:fragment="categoriasTabs" id="categorias">
+            <div class="row py-4">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           aria-current="page" 
+                           href="/pruebas/listado"
+                           >[[#{pruebas.todas}]]</a>
+                    </li>
+                    <li th:each="categoria : ${categorias}" class="nav-item">
+                        <a class="nav-link" 
+                           th:href="@{/pruebas/listado/}+${categoria.idCategoria}"
+                           >[[${categoria.descripcion}]]</a>
+                    </li>                    
+                </ul>
             </div>
         </section>
 
@@ -46,7 +47,7 @@
                                         <option th:each="c : ${categoria}"
                                                 th:value="c.idCategoria"
                                                 th:text="c.descripcion"> 
-                                            
+
                                         </option>
                                 </div>
                                 <div class="mb-3">
@@ -63,7 +64,7 @@
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
                             </div>
-                            
+
                             <div class="modal-footer">
                                 <button class="btn btn-primary" type="submit">Guardar</button>
                             </div>
@@ -72,7 +73,6 @@
                 </div>
             </div>
         </section>
-
         <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
         <section th:fragment="listadoProductos" id="productos">
             <div class="container">
@@ -124,6 +124,91 @@
                 </div>
             </div>
         </section>
+
+        <!-- 3 Sección para crear los filtros -->
+        <section th:fragment="filtros" class="bg-light">
+            <div class="row py-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/pruebas/query1}" 
+                          class="was-validated">
+                        <div class="card">                            
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioInf}"
+                                           th:name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioSup}"
+                                           th:name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-check"></i> [[#{pruebas.ampliadas}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>   
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/pruebas/query2}" 
+                          class="was-validated">
+                        <div class="card">                            
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioInf}"
+                                           th:name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioSup}"
+                                           th:name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fas fa-check"></i> [[#{pruebas.jpql}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                    <form method="POST" th:action="@{/pruebas/query3}" 
+                          class="was-validated">
+                        <div class="card success">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="precioInf">[[#{pruebas.precio.inferior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioInf}"
+                                           th:name="precioInf" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precioSup">[[#{pruebas.precio.superior}]]</label>
+                                    <input type="number" class="form-control" 
+                                           th:value="${precioSup}"
+                                           th:name="precioSup" required="true"/>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fas fa-check"></i> [[#{pruebas.nativo}]]
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section> 
 
         <!-- 4 Fragmento que se utiliza en la página modifca.html -->
         <section th:fragment="editarProducto">

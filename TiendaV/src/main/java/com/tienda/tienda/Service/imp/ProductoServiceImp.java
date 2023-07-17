@@ -12,14 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 /**
  *
  * @author mfsv_
  */
-
 @Service
 public class ProductoServiceImp implements ProductoService {
+
     @Autowired
     private ProductoDao productoDao;
 
@@ -49,5 +48,24 @@ public class ProductoServiceImp implements ProductoService {
     @Transactional
     public void delete(Producto producto) {
         productoDao.delete(producto);
+    }
+
+    // Lista de productos con precio entre ordendados por descripción ConsultaAmpliada
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> metodoJPQL(double precioInf, double precioSup) {
+        return productoDao.metodoJPQL(precioInf, precioSup);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> metodoNativo(double precioInf, double precioSup) {
+        return productoDao.metodoNativo(precioInf, precioSup);
     }
 }

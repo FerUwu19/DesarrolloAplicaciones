@@ -1,18 +1,15 @@
-
-.header{
+.cabeza{
     position: fixed;
     top:0;
     left:0;
-    height:50px;
+    height:64px;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
     background-color: #FAC9DC;
     color:#FF69A4;
 }
-
-.MenuGeneral{
-    display: flex;
-    list-style: none;
-    margin-top: 13px;
+.MenuCentro{
+    margin-top: 15px;
 }
 .MenuList{
     list-style: none;
@@ -52,6 +49,7 @@ a:hover{
     font-size: 60px;
     font-weight: 700;
     color:  #FF69A4;
+    font-family: 'Poppins', sans-serif;
 }
 
 .textHome2{
@@ -60,6 +58,7 @@ a:hover{
     font-size: 20px;
     font-weight: 400;
     color: black;
+    font-family: 'Poppins', sans-serif;
 }
 
 h1{
@@ -72,7 +71,6 @@ h1{
 .articleList{
     margin-left: 26px;
     display: inline-block;
-    ;
     margin-top:  20px;
     list-style: none;
     background-color: #F4E7EF;
@@ -94,7 +92,7 @@ h1{
 .articleListR2{
     margin-left: 26px;
     display: inline-block;
-    ;
+
     margin-top:  12px;
     list-style: none;
     background-color: #F4E7EF;
@@ -111,9 +109,14 @@ h1{
     font-size: 14px;
     text-decoration: none;
     color: black;
+    font-family: 'Poppins', sans-serif;
 }
 
-footer {
+.frase_container{
+    
+}
+
+.piePagina {
     padding: 3px;
     text-align: center;
     background-color: #FAC9DC;
@@ -121,4 +124,5 @@ footer {
     margin-right: -10px;
     margin-left: -10px;
     margin-bottom: -10px;
+    font-family: 'Poppins', sans-serif;
 }

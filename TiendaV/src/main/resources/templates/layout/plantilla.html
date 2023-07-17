@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="Pagina Inicial" content="Pagina sobre Sanrio"/>
         <meta name="Keywords" content="sanrio, hello kitty, my melody, cinnamoroll, kuromi, keroppi"/> 
-        <link href="style/estilosTienda.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{style/estilosTienda.css}"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/js/rutinas.js}" />
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
@@ -15,34 +15,42 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
     <body>
-        <header th:fragment="header" class="header">
-            <nav >
-                <div class="collapse navbar-collapse " id="navbarCollapse">
-                    <ul class="MenuGeneral">
-                        <li > 
-                            <ul class="MenuList">
-                                <li class="ItemList" ><a th:href="@{/}" class="navbar-brand"><img src="imagenes/Sanrio.png" width="75"/></a> </li>
-                                <li class="ItemList" ><a class="MenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                                <li class="ItemList" ><a class="MenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
-                                    <a class="ItemList MenuLink droptown"
-                                        data-bs-toggle="dropdown"
-                                        href="#"
-                                        role="button"
-                                        aria-expanded="false">[[#{plantilla.asociaciones}]]</a>
-                            </ul>
-                        </li> 
-                        <div>
-                            <ul class="MenuList">
-                                <li class="ItemList"  /><a class="MenuLink"  th:href="@{/(lang=es)}">ES</a></li>
-                                <li class="ItemList" /><a class="MenuLink" th:href="@{/(lang=en)}">EN</a></li>
-                            </ul>
-                        </div>
+        <header th:fragment="cabeza" class="cabeza">
+            <nav class="navbar navbar-expand-sm MenuGeneral">
+                <div class="container">
+                    <a th:href="@{/}" class="logo"><img src="imagenes/Sanrio.png" width="75"/></a>
+                    <button class="navbar-toggler" >
+                        <span class="navbar-toggler-icon" ></span>
+                    </button>
+                    <div class="MenuCentro collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <ul class="MenuList">
+                            <li class="ItemList" ><a class="MenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                            <li class="ItemList" ><a class="MenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
+                            <li>
+                                <a class="ItemList MenuLink droptown-toggle"
+                                   data-bs-toggle="dropdown"
+                                   href="#"
+                                   role="button"
+                                   aria-expanded="false">[[#{plantilla.pruebas}]]</a>
+                                <ul class="dropdown-menu ">
+                                    <li class="nav-item px-2"><a class="MenuLink dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
+                                    <li class="nav-item px-2"><a class="MenuLink dropdown-item"  th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="MenuList MenuCentro">
+                            <li class="nav-item px-2 ItemList"  /><a class="MenuLink"  th:href="@{/(lang=es)}">ES</a></li>
+                            <li class="nav-item px-2 ItemList" /><a class="MenuLink" th:href="@{/(lang=en)}">EN</a></li>
+                        </ul>
+                    </div>
                     </ul>
                 </div> 
             </nav>
         </header>
 
-        <footer th:fragment="footer" class="footer">
+        <footer th:fragment="piePagina" class="piePagina">
             <div class="container">
                 <div class="col">
                     <p class="lead text-center">
