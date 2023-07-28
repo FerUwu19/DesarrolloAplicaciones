@@ -5,7 +5,7 @@
 package com.tienda.tienda.controller;
 
 import com.tienda.tienda.Service.ProductoService;
-import com.tienda.tienda.Service.imp.FirebaseStorageServiceImp;
+import com.tienda.tienda.Service.imp.FirebaseStorageServiceImpl;
 import com.tienda.tienda.domain.Producto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class ProductoController {
     }
 
     @Autowired
-    private FirebaseStorageServiceImp firebaseStorageService;
+    private FirebaseStorageServiceImpl firebaseStorageService;
 
     @GetMapping("/guardar")
     public String productoGuardar(Producto producto, @RequestParam("imagenFile") MultipartFile imagenFile) {

@@ -9,7 +9,7 @@
     <body>
         <!-- 1 Sección principal para mostrar la informaccion de las categorias -->
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
-           <div class="container">
+           <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
                 <div class="row">
                     <div class="col-md-3">   
                         <button 
@@ -99,7 +99,8 @@
                                             <td class="text-end">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
                                             <td class="text-center">[[#{producto.existencias}]]</td>
                                             <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/producto/eliminar/}+${producto.id_producto}"
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/producto/eliminar/}+${producto.id_producto}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/producto/modificar/}+${producto.id_producto}"

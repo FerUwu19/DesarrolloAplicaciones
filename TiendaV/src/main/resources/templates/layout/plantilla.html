@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6" >
     <head th:fragment="head">
         <title>Sanrio Costa Rica</title>
         <meta charset="UTF-8">
@@ -23,10 +25,10 @@
                         <span class="navbar-toggler-icon" ></span>
                     </button>
                     <div class="MenuCentro collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="MenuList">
+                        <ul class="MenuList" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_VENDEDOR')">
                             <li class="ItemList" ><a class="MenuLink"  th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
                             <li class="ItemList" ><a class="MenuLink"  th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a> </li>
-                            <li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a class="ItemList MenuLink droptown-toggle"
                                    data-bs-toggle="dropdown"
                                    href="#"
@@ -35,9 +37,11 @@
                                 <ul class="dropdown-menu ">
                                     <li class="nav-item px-2"><a class="MenuLink dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
                                     <li class="nav-item px-2"><a class="MenuLink dropdown-item"  th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
-                                </ul>
+                                    <li class="nav-item px-2"><a class="MenuLink dropdown-item"  th:href="@{/usuario/listado}">[[#{plantilla.usuario}]]</a></li>
+                               </ul>
                             </li>
                         </ul>
+                       
                     </div>
                     <div class="col-md-3">
                         <ul class="MenuList MenuCentro">
@@ -45,6 +49,19 @@
                             <li class="nav-item px-2 ItemList" /><a class="MenuLink" th:href="@{/(lang=en)}">EN</a></li>
                         </ul>
                     </div>
+                    </ul>
+                    <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                        <li class="nav-item text-white my-auto">
+                            <i class="fas fa-users"></i>
+                            <span sec:authentication="name">Bob</span>
+                        </li>
+                        <li class="nav-item my-auto">
+                            <form method="post" th:action="@{/logout}">
+                                <button class="btn btn-dark">
+                                    <li class="fas fa-sign-out-alt"></li>
+                                </button>
+                            </form>
+                        </li>
                     </ul>
                 </div> 
             </nav>

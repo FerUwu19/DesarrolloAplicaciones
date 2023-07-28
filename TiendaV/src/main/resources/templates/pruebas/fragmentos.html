@@ -8,7 +8,7 @@
     <body>
          <!-- 1 Sección principal para mostrar la informaccion de las categorias -->
         <section th:fragment="categoriasTabs" id="categorias">
-            <div class="row py-4">
+            <div class="row py-4" sec:authorize="hasRole('ROLE_ADMIN')">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" 
@@ -99,7 +99,8 @@
                                             <td class="text-end">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
                                             <td class="text-center">[[#{producto.existencias}]]</td>
                                             <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td><a th:href="@{/producto/eliminar/}+${producto.id_producto}"
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')" >
+                                                <a th:href="@{/producto/eliminar/}+${producto.id_producto}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/producto/modificar/}+${producto.id_producto}"
